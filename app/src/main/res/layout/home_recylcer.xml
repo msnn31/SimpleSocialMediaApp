@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="5dp"
+    android:padding="10dp"
+    android:backgroundTint="#FFCFF6F6"
+    card_view:cardElevation="5dp"
+    android:layout_margin="5dp"
+    card_view:cardMaxElevation="5dp"
+    card_view:contentPadding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!--    LinearLayout for Showing Post (Text, Image and Video) -->
+    <LinearLayout
+        android:id="@+id/linearPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="clip_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--username-->
+        <TextView
+            android:id="@+id/usernameTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="5dp"
+            android:text="UserName"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <!--    textview-->
+        <TextView
+            android:id="@+id/ShowPostMessageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="text"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <!--    imageview        -->
+        <ImageView
+            android:id="@+id/viewImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logoimage"
+            android:visibility="gone"/>
+
+        <!--            if video is available then videoview&ndash;&gt;-->
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <!--    LinearLayout for showing People Liked, Like and share Buutons-->
+    <LinearLayout
+        android:id="@+id/linearLike"
+        android:layout_width="match_parent"
+        android:layout_below="@id/linearPost"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <!--    like, share-->
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <!--        like button-->
+            <ImageView
+                android:id="@+id/likeBtn"
+                android:layout_width="20dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="20dp"
+                android:src="@drawable/heart1" />
+
+            <ImageView
+                android:id="@+id/commentBtn"
+                android:layout_width="20dp"
+                android:layout_margin="7dp"
+                android:layout_height="20dp"
+                android:src="@drawable/cmmnt1"/>
+
+            <!--        share button-->
+            <ImageView
+                android:id="@+id/shareBtn"
+                android:layout_width="20dp"
+                android:layout_margin="7dp"
+                android:layout_height="20dp"
+                android:src="@drawable/planeshare" />
+        </LinearLayout>
+
+        <!--    like Textview-->
+        <TextView
+            android:id="@+id/likeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:text="Likes"
+            android:layout_marginBottom="5dp"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--    LinearLayout for showing People Commented and Post Comment-->
+    <LinearLayout
+            android:id="@+id/linearComment"
+            android:layout_below="@id/linearLike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="vertical">
+
+            <!--    comments Textview-->
+            <TextView
+                android:id="@+id/commentsTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comments"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:visibility="gone" />
+
+            <!--        Post the comments-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/addcomment"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:hint="Add a comment..."
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/addCommentBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="5sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/light_purple"
+                    android:text="Comment" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--            caption-->
+        <TextView
+            android:id="@+id/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@id/linearComment"
+            android:text="Caption"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_below="@id/linearComment"
+            android:textSize="10sp"
+            android:text="time"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
